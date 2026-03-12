@@ -4,6 +4,8 @@ main{
     -webkit-overflow-scrolling: touch;
 }
 
+
+
 .title-image{
   width: 100%;
   height: auto;
@@ -14,15 +16,28 @@ main{
   font-size: 10px;
 }
 
+
+#main-content{
+    overflow: visible !important;
+}
+
+
+.swiper-wrapper section {
+    overflow-y: auto;
+    overflow-x: hidden; /* Évite les bugs de largeur */
+    position: relative; /* Donne un point de référence */
+    height: 100%; /* Important pour Swiper */
+}
+
 .main-question{
   text-align: center;
   background: rgb(224, 151, 224);
-  font-size: 10px;
+  font-size: 30px;
   position: sticky;
   padding: 20px;
   display: flex;
   justify-content: center;
-  top:0;
+  top:0px;
 
 }
 

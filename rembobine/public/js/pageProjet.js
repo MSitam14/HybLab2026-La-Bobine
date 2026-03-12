@@ -172,19 +172,23 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
         const overlay = document.getElementById('popup-overlay');
         const popupText = document.getElementById('popup-text');
+        const popupBox = document.getElementById('popup-box');
 
         switch (box.color){
           case 1:
-            console.log(box.ngroup);
+            popupBox.className ="jud";
             popupText.textContent = Judiciaire[box.ngroup].Texteplus;
             break;
           case 2:
+            popupBox.className ="med";
             popupText.textContent = Mediatique[box.ngroup].Texteplus;
             break;
           case 3:
+            popupBox.className ="pub";
             popupText.textContent = Public[box.ngroup].Texteplus;
             break;
           case 4:
+            popupBox.className ="inst";
             popupText.textContent = Institutionnel[box.ngroup].Texteplus;
             break;
         }

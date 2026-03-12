@@ -44,6 +44,25 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
       button.id = `button${buttonNumber}`;
 
       button.textContent = ` ${buttonNumber} `;
+
+      switch (buttonNumber) {
+        case 1:
+          button.className ="jud"; // Change color as desired
+          break;
+        case 2:
+          button.className ="med"; // Change color as desired 
+          break;
+        case 3:
+          button.className ="pub";
+          break;
+        case 4:
+          button.className ="inst";
+          break;
+        default:
+          button.style.backgroundColor = '#d5d5d5d1';
+          break;
+      }
+
       row.appendChild(button);
       if(State[button.textContent] === true){button.disabled = true; console.log(button.disabled);}
       box.appendChild(row);
@@ -72,7 +91,6 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         textDisplay.id = "base";
         switch (parseInt(value)) {
           case 1:
-            box.style.backgroundColor = '#ff2ba3d1'; // Change color as desired
             box.color = 1;
             box.ngroup = count_public;
             count_public ++;
@@ -91,7 +109,6 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
             
             break;
           case 2:
-            box.style.backgroundColor = '#fff700d1'; // Change color as desired
             box.color = 2;
             box.ngroup = count_mediatique;
             count_mediatique ++;
@@ -109,7 +126,6 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
             break;
           case 3:
-            box.style.backgroundColor = '#643ff793';
             box.color = 3;
             box.ngroup = count_institutionnel;
             count_institutionnel ++;
@@ -127,7 +143,6 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
             
             break;
           case 4:
-            box.style.backgroundColor = '#2bff55d1';
             box.color = 4;
             box.ngroup = count_judiciaire;
             count_judiciaire ++;
@@ -170,8 +185,38 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         boxNum = Math.floor(Math.random() * boxsFreeList.length);
         theChoosenBox = boxsFreeList[boxNum];
       }
+      let newbox = createButtonBox(`box${theChoosenBox.row}${theChoosenBox.column}`, theChoosenBox.row, theChoosenBox.column)
 
-      replaceBox(theChoosenBox, createButtonBox(`box${theChoosenBox.row}${theChoosenBox.column}`, theChoosenBox.row, theChoosenBox.column));
+
+      if(box.column>theChoosenBox.column) newbox.className +=" animate__animated animate__fadeInRight"
+      if(box.column<theChoosenBox.column) newbox.className +=" animate__animated animate__fadeInLeft"
+      if(box.row>theChoosenBox.row) newbox.className +=" animate__animated animate__fadeInUp"
+      if(box.row<theChoosenBox.row) newbox.className +=" animate__animated animate__fadeInDown"
+      
+      replaceBox(theChoosenBox,newbox)
+
+      box.className ="box text-box";
+      
+
+      switch (parseInt(value)) {
+        case 1:
+          box.className +=" jud"; // Change color as desired
+          break;
+        case 2:
+          box.className +=" med"; // Change color as desired 
+          break;
+        case 3:
+          box.className +=" pub";
+          break;
+        case 4:
+          box.className +=" inst";
+          break;
+        default:
+          box.style.backgroundColor = '#d5d5d5d1';
+          break;
+      }
+      
+      // box.parentElement.appendChild(createButtonBox(`box`));
     });
   });
 
@@ -271,22 +316,12 @@ const initPageProjet = async function () {
     }
   });
 
-  // Retrieve the partner's topic from our API
-  let response = await fetch('api/topic');
-  const data1 = await response.json();
-
   const response2 = (await fetch('/rembobine/data/article.json'));
   const article = await response2.json()
   Institutionnel = article.Institutionnel;
   Mediatique = article.Mediatique;
   Public = article.Public;
   Judiciaire = article.Judiciaire;
-
-
-
-
-  const titre = document.getElementById('titre');
-  titre.textContent = `Our topic is "${data1.topic}".`;
 
   addEmptyRow();
 

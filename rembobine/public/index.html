@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   <title>Hyblab 2025</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
@@ -22,29 +24,156 @@
     <main class="swiper-wrapper">
       <section id="first-slide" class="swiper-slide">
 
-        <body>
-
-          <p id="titre"> </p>
-
-
-          <div id=map>
-
-            <div id="mapColum1" class="colum">
-
-
-              
-
+        <body class="post-template tag-impact">
+          <div id="announcement-bar-root">
+            <div class="gh-announcement-bar accent">
+              <div class="gh-announcement-bar-content">
+                <p dir="ltr"><span>Soutenez Rembobine et l'impact du journalisme avec un don. Votre soutien nous est
+                    essentiel ! </span></p>
+              </div><button aria-label="close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16"
+                  width="16">
+                  <path stroke-linecap="round" stroke-width="0.4" fill="currentColor" stroke="#000000"
+                    stroke-linejoin="round"
+                    d="M.44,21.44a1.49,1.49,0,0,0,0,2.12,1.5,1.5,0,0,0,2.12,0l9.26-9.26a.25.25,0,0,1,.36,0l9.26,9.26a1.5,1.5,0,0,0,2.12,0,1.49,1.49,0,0,0,0-2.12L14.3,12.18a.25.25,0,0,1,0-.36l9.26-9.26A1.5,1.5,0,0,0,21.44.44L12.18,9.7a.25.25,0,0,1-.36,0L2.56.44A1.5,1.5,0,0,0,.44,2.56L9.7,11.82a.25.25,0,0,1,0,.36Z">
+                  </path>
+                </svg></button>
             </div>
-
-            <div id="mapColum2" class="colum">
-
-
-            </div>
-
           </div>
+          <div class="c-site-container">
+            <header class="c-header" id="header">
+              <div class="o-grid o-grid--center">
+                <div class="o-grid__col">
+                  <div class="c-header__inner">
+                    <div class="c-logo">
+                      <a href="https://www.rembobine.info">
+                        <img class="c-logo__img"
+                          src="https://www.rembobine.info/content/images/2024/06/Design-sans-titre--2--1.png"
+                          alt="Rembobine, le média qui lutte contre l'obsolescence de l'info" width="" height="">
+                      </a>
+                    </div>
+                    <button class="js-nav-toggle c-nav-toggle">
+                      ☰
+                    </button>
+                    <nav class="c-nav-wrap" aria-label="Main menu">
+                      <ul class="c-nav c-nav--left o-plain-list">
+                        <li class="c-nav__item"><a href="https://www.rembobine.info/mission/" class="c-nav__link ">À
+                            propos</a></li>
+                        <li class="c-nav__item"><a href="https://www.rembobine.info/equipe/"
+                            class="c-nav__link ">L'équipe </a></li>
+                        <li class="c-nav__item"><a href="https://www.rembobine.info/nos-ateliers/"
+                            class="c-nav__link ">Nos ateliers </a></li>
+                        <li class="c-nav__item"><a href="https://guide-journalisme-impact.fr/"
+                            class="c-nav__link ">Guide du journalisme d'impact</a></li>
+                        <li class="c-nav__item"><a href="https://www.rembobine.info/tag/archives/"
+                            class="c-nav__link ">Archives </a></li>
+                        <li class="c-nav__item"><a href="https://www.rembobine.info/campagne-soutien/"
+                            class="c-nav__link ">Faire un don</a></li>
+                      </ul>
+
+                      <ul class="c-nav c-nav--right o-plain-list">
+                        <li class="c-nav__item">
+                          <button class="c-nav__link toggle-search-button" aria-label="Rechercher" data-ghost-search="">
+                            <div class="c-nav__icon-search">
+                              <svg viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+                                  stroke-linejoin="round">
+                                  <g transform="translate(-699.000000, -42.000000)" stroke="#687385" stroke-width="2">
+                                    <g transform="translate(700.000000, 43.000000)">
+                                      <g>
+                                        <path
+                                          d="M12.9032258,6.4516129 C12.9032258,10.0148883 10.0148883,12.9032258 6.4516129,12.9032258 C2.88833747,12.9032258 0,10.0148883 0,6.4516129 C0,2.88833747 2.88833747,0 6.4516129,0 C10.0148883,0 12.9032258,2.88833747 12.9032258,6.4516129 Z">
+                                        </path>
+                                        <line x1="15.483871" y1="15.483871" x2="10.5806452" y2="10.5806452"></line>
+                                      </g>
+                                    </g>
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                            <span>Rechercher</span>
+                          </button>
+                        </li>
+
+                        <li class="c-nav__item is-membership"><a href="#/portal/account" class="c-nav__link">Compte</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+
+            </header>
+
+            <div class="c-tags-list-container">
+              <div class="o-grid">
+                <div class="o-grid__col o-grid__col--full">
+                  <nav class="c-tags-list-wrap" aria-label="Tags menu">
+                    <ul class="c-tags-list o-plain-list dragscroll">
+                      <li class="c-tags-list__item">
+                        <a href="/" class="c-tags-list__link">À la Une</a>
+                      </li>
+                      <li class="c-tags-list__item">
+                        <a href="/tag/impact/" class="c-tags-list__link">💥 En quête d'impact</a>
+                      </li>
+                      <li class="c-tags-list__item">
+                        <a href="/tag/coulisses-info/" class="c-tags-list__link">🏗️ Les coulisses de l'info</a>
+                      </li>
+                      <li class="c-tags-list__item">
+                        <a href="/tag/retour-une/" class="c-tags-list__link">🗞️ Retour à la Une</a>
+                      </li>
+                      <li class="c-tags-list__item">
+                        <a href="/tag/du-cote-des-pros/" class="c-tags-list__link">👊 L'impact en rédac</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+
+            <main id="main-content" class="o-wrapper">
+              <div class="o-grid">
+
+                <div class="o-grid__col o-grid__col o-grid__col--center o-grid__col--9-10-m o-grid__col--2-3-l">
+
+                  <article class="c-post tag-impact">
+                    <figure class="c-post-media c-post-media--with-caption">
+                      <div class="c-post-media__wrap">
+
+                        <img src="https://www.rembobine.info/content/images/size/w692/2026/01/Enqu--tes-d-impact---Unes--36-.jpg" class="title-image">
+
+                        <figcaption class="c-post-media__caption"><span style="white-space: pre-wrap;">&nbsp;Maison russe de Bangui © Facebook La Maison Russe</span></figcaption>
+                    </figure>
+                    <div class="wrapper">
+                      <header class="c-post-header">
+                        <h1 class="c-post-header__title">En Afrique, la Russie ruse pour étendre son influence</h1>
+
+                        <p class="c-post-header__excerpt">Equivalents de nos Instituts français, les "Maisons russes"
+                          servent d’instrument de soft power au Kremlin pour accroître son influence en Afrique.</p>
+                      </header>
+                    
+                      <div id=map>
+
+                        <div id="mapColum1" class="colum">
 
 
+                          
 
+                        </div>
+
+                        <div id="mapColum2" class="colum">
+
+
+                        </div>
+
+                      </div>
+                    
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </main>
+          </div>
         </body>
       </section>
     </main>

@@ -20,8 +20,9 @@
 #container{
     position: fixed; /* To set the size of the container to 100% of the visible viewport height AND for absolute positioning of child elements*/ 
     height: 100%;   /* even on mobile devices with url or navigation bars */
-    margin-left: calc((100vw - 100 * 3vh / 4) / 2); /* Add black bands on left and right */
-    width: calc(100 * 3vh / 4); /* Force 3/4 aspect ratio */
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 /* We set a default font size here. It will be the base for all other font sizes */
@@ -39,17 +40,23 @@
   --color-border: #e5e5e5;
 }
 
-body{
+body {
     background-color: var(--color-light-gray);
     color: rgb(0, 0, 0);
     overflow-y: auto;
     overflow-x: hidden;
-    
 
     font-size: 16px;
-    letter-spacing: 1px;
     font-family: 'Inter', sans-serif;
+}
 
+article{
+    padding-left :5%;
+    padding-right :5%;
+}
+
+article p {
+  text-align: justify;
 }
 
 @font-face {
@@ -75,7 +82,8 @@ body{
     font-size: 14px;
     font-family: 'Inter', sans-serif;
     text-align: center;
-    margin-right: 5px; /*marge pour la croix*/
+    margin-right: 10%; /*marge pour la croix*/
+    margin-left: 10%; /*marge pour la croix*/
     margin-top: -5px;
     margin-bottom: -5px;
 }
@@ -93,7 +101,7 @@ body{
     cursor: pointer;
 }
 
-.c-header {
+.c-header, .c-tags-list {
     font-family: 'Trebuchet MS';
     background: var(--color-white);
     border-bottom: 1px solid var(--color-border);
@@ -103,13 +111,69 @@ body{
     
 }
 
-.c-header__inner {
+.c-header__inner, .c-tags-list-wrap {
     display: flex;
     align-items: center;
+    list-style: none;
     justify-content: space-between;
     padding: 10px 20px;
     background-color: var(--color-white);
 }
+/*SLIDER HORIZONTAL POUR LES TAGS*/
+
+.c-tags-list-wrap {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    padding: 10 20px;
+}
+
+.c-tags-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.c-tags-list li {
+  white-space: nowrap;     /* empêche le texte de passer à la ligne */
+}
+
+/* masque dégradé sur les côtés */
+.c-tags-list-wrap::before,
+.c-tags-list-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px; /* largeur du gradient */
+  pointer-events: none; /* laisse passer le scroll */
+  z-index: 1;
+}
+
+.c-tags-list-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-white), transparent);
+}
+
+.c-tags-list-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-white), transparent);
+}
+
+/* optionnel : cacher la scrollbar sur certains navigateurs */
+.c-tags-list::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+
 
 .c-logo {
   flex-shrink: 0;
@@ -136,18 +200,18 @@ body{
   padding: 0;
 }
 
-.c-nav__link {
+.c-nav__link,.c-tags-list__link {
   color: var(--color-gray);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-.c-nav__link:hover {
+.c-nav__link:hover,.c-tags-list__link:hover{
   color: var(--color-black)
 }
 
-.c-nav__link.active {
+.c-nav__link.active,.c-tags-list__link.active{
   color: var(--color-black)
 }
 

@@ -14,12 +14,18 @@ body{
     overflow-y: auto;
     overflow-x: hidden;
     font-family: sans-serif;
+    font-size: 15vw;
+}
+
+#base{
+    font-size: 4vw;
 }
 
 /* -------------- Loader --------------*/
 #loader{
     z-index: 2;
     position:absolute;
+    justify-content: ;
 }
 
 #loader-img{

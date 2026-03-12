@@ -38,9 +38,12 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
       if(State[button.textContent] === true){button.disabled = true; console.log(button.disabled);}
       box.appendChild(row);
     }
-
     
   }
+  
+
+
+
 
 
   box.querySelectorAll('button').forEach(option => {
@@ -48,10 +51,11 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         // Send the user's choice to our API
 
         const value = option.textContent;
-
-
+        
+        
         //const box = option.parentElement.parentElement;
-        // Remove all buttons
+
+        //remove all
         option.parentElement.querySelectorAll('button').forEach(btn => btn.remove());
 
         // Remove all rows
@@ -153,12 +157,11 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
         let theChoosenBox = boxsFreeList[parseInt(boxNum)];
 
+        //Create the new box and replace the chosen free one and scroll to it
+        const newBox = createButtonBox(`box${theChoosenBox.row}${theChoosenBox.column}`, theChoosenBox.row, theChoosenBox.column);
+        replaceBox(theChoosenBox, newBox);
+        newBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        replaceBox(theChoosenBox, createButtonBox(`box${theChoosenBox.row}${theChoosenBox.column}`, theChoosenBox.row, theChoosenBox.column));
-
-        
-
-        
 
         // box.parentElement.appendChild(createButtonBox(`box`));
     });
@@ -268,5 +271,6 @@ const initPageProjet = async function () {
   addEmptyRow();
 
   replaceBox(getBoxByPosition(1, 1), createButtonBox("box11", 1, 1));
+  
 
 };

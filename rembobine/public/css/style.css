@@ -314,7 +314,7 @@ padding:20px;
     height: auto;
 }
 
-.box {
+.box , .boxCitation {
   height: 100px;
   width: 100px;
 }
@@ -380,7 +380,7 @@ button{
 #map > * {
   flex: 1;
 }
-#map .box {
+#map .box, #map .boxCitation {
 
   --animate-duration: 0.1s;
 

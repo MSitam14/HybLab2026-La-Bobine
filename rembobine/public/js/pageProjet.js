@@ -10,6 +10,8 @@ let count_mediatique = 0;
 let count_judiciaire = 0;
 let count_public = 0;
 
+let columnForCitation = 1;
+
 let State = [false, false, false, false]; //[SInstitutionnel, SMediatique, SJudiciaire, SPublic]
 
 function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
@@ -235,6 +237,7 @@ function addEmptyRow(aRow = 1) {
   const mapCol1 = document.getElementById('mapColum1');
   const mapCol2 = document.getElementById('mapColum2');
 
+
   const box1 = document.createElement("div");
   box1.id = "boxFree";
   box1.isFree = true;
@@ -252,6 +255,17 @@ function addEmptyRow(aRow = 1) {
   box2.column = 2;
   const text2 = document.createElement("p");
   box2.appendChild(text2);
+
+  if(aRow%2 == 0){
+    if(columnForCitation == 1){
+      columnForCitation = 2;
+      box1.className = "boxCitation";
+    }
+    else{
+      columnForCitation = 1;
+      box2.className = "boxCitation";
+    }
+  }
 
   mapCol1.appendChild(box1);
   mapCol2.appendChild(box2);

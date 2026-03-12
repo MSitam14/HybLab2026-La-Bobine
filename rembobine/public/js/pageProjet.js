@@ -10,6 +10,8 @@ let count_mediatique = 0;
 let count_judiciaire = 0;
 let count_public = 0;
 
+let columnForCitation = 1;
+
 let State = [false, false, false, false]; //[SInstitutionnel, SMediatique, SJudiciaire, SPublic]
 
 function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
@@ -20,19 +22,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
   box.row = aRow;
   box.column = aColumn;
   box.color = null; //In which group the box is a part of
-  box.ngroup = null;//It's id in the group
-
-  box.addEventListener('click', () => {
-    // Do not trigger while choice buttons are still visible.
-    if (box.querySelector('button')) {
-      return;
-    }
-
-    const overlay = document.getElementById('popup-overlay');
-    const popupText = document.getElementById('popup-text');
-    popupText.textContent = box.querySelector('p') ? box.querySelector('p').textContent : '';
-    overlay.classList.remove('popup-hidden');
-  });
+  box.ngroup = null;//Its id in the group
 
   for (let rowIndex = 0; rowIndex < 2; rowIndex += 1) {
     const row = document.createElement("div");
@@ -45,32 +35,38 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
       button.textContent = ` ${buttonNumber} `;
 
+      const img = document.createElement("img");
+      let path = "img/"
       switch (buttonNumber) {
         case 1:
-          button.className ="jud"; // Change color as desired
+          button.className ="jud";
+          img.src = path + "Picto_ImpactJuridique.svg";
           break;
         case 2:
-          button.className ="med"; // Change color as desired 
+          button.className ="med";
+          img.src = path + "Picto_ImpactMediatique.svg";
           break;
         case 3:
           button.className ="pub";
+          img.src = path + "Picto_ImpactPublic.svg";
           break;
         case 4:
           button.className ="inst";
+          img.src = path + "Picto_ImpactInstitutionnel.svg";
           break;
         default:
           button.style.backgroundColor = '#d5d5d5d1';
           break;
       }
 
+      button.appendChild(img);
+
       row.appendChild(button);
       if(State[button.textContent] === true){button.disabled = true; console.log(button.disabled);}
       box.appendChild(row);
     }
-
     
   }
-
 
   box.querySelectorAll('button').forEach(option => {
     option.addEventListener('click', async (event) => {
@@ -92,10 +88,10 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         switch (parseInt(value)) {
           case 1:
             box.color = 1;
-            box.ngroup = count_public;
-            count_public ++;
+            box.ngroup = count_judiciaire;
+            count_judiciaire ++;
 
-            if (box.ngroup >= Public.length){
+            if (box.ngroup >= Judiciaire.length){
 
               textDisplay.textContent = "Vous avez vu tout les impact !";
               State[value] = true;
@@ -103,7 +99,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
             } else{
 
-              textDisplay.textContent = Public[box.ngroup].Base;
+              textDisplay.textContent = Judiciaire[box.ngroup].Base;
 
             }
             
@@ -127,6 +123,23 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
             break;
           case 3:
             box.color = 3;
+            box.ngroup = count_public;
+            count_public ++;
+
+            if (box.ngroup >= Public.length){
+
+              textDisplay.textContent = "Vous avez vu tout les impact !";
+              State[value] = true;
+
+            } else{
+
+              textDisplay.textContent = Public[box.ngroup].Base;
+
+            }
+            
+            break;
+          case 4:
+            box.color = 4;
             box.ngroup = count_institutionnel;
             count_institutionnel ++;
 
@@ -140,23 +153,6 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
               textDisplay.textContent = Institutionnel[box.ngroup].Base;
 
             }
-            
-            break;
-          case 4:
-            box.color = 4;
-            box.ngroup = count_judiciaire;
-            count_judiciaire ++;
-
-            if (box.ngroup >= Judiciaire.length){
-
-              textDisplay.textContent = "Vous avez vu tout les impact !";
-              State[value] = true;
-
-            } else{
-
-              textDisplay.textContent = Judiciaire[box.ngroup].Base;
-
-            }
 
             break;
           default: 
@@ -166,7 +162,38 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         // Display clicked button text
         box.appendChild(textDisplay);
         console.log(textDisplay);
+      
 
+      box.addEventListener('click', () => {
+        // Do not trigger while choice buttons are still visible.
+        if (box.querySelector('button')) {
+          return;
+        }
+
+        const overlay = document.getElementById('popup-overlay');
+        const popupText = document.getElementById('popup-text');
+        const popupBox = document.getElementById('popup-box');
+
+        switch (box.color){
+          case 1:
+            popupBox.className ="jud";
+            popupText.textContent = Judiciaire[box.ngroup].Texteplus;
+            break;
+          case 2:
+            popupBox.className ="med";
+            popupText.textContent = Mediatique[box.ngroup].Texteplus;
+            break;
+          case 3:
+            popupBox.className ="pub";
+            popupText.textContent = Public[box.ngroup].Texteplus;
+            break;
+          case 4:
+            popupBox.className ="inst";
+            popupText.textContent = Institutionnel[box.ngroup].Texteplus;
+            break;
+        }
+      overlay.classList.remove('popup-hidden');
+      });
       if (getBoxByPosition(box.row + 1, box.column) == null) {
         addEmptyRow(box.row + 1);
       }
@@ -194,6 +221,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
       if(box.row<theChoosenBox.row) newbox.className +=" animate__animated animate__fadeInDown"
       
       replaceBox(theChoosenBox,newbox)
+      newbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
       box.className ="box text-box";
       
@@ -227,6 +255,7 @@ function addEmptyRow(aRow = 1) {
   const mapCol1 = document.getElementById('mapColum1');
   const mapCol2 = document.getElementById('mapColum2');
 
+
   const box1 = document.createElement("div");
   box1.id = "boxFree";
   box1.isFree = true;
@@ -234,7 +263,6 @@ function addEmptyRow(aRow = 1) {
   box1.row = aRow;
   box1.column = 1;
   const text1 = document.createElement("p");
-  text1.textContent = "T";
   box1.appendChild(text1);
 
   const box2 = document.createElement("div");
@@ -244,8 +272,18 @@ function addEmptyRow(aRow = 1) {
   box2.row = aRow;
   box2.column = 2;
   const text2 = document.createElement("p");
-  text2.textContent = "T";
   box2.appendChild(text2);
+
+  if(aRow%2 == 0){
+    if(columnForCitation == 1){
+      columnForCitation = 2;
+      box1.className = "boxCitation";
+    }
+    else{
+      columnForCitation = 1;
+      box2.className = "boxCitation";
+    }
+  }
 
   mapCol1.appendChild(box1);
   mapCol2.appendChild(box2);
@@ -301,12 +339,14 @@ function replaceBox(oldBox, newBox) {
   oldBox.parentElement.replaceChild(newBox, oldBox);
 }
 
+
+
 // async init function (because of the awaits on fetches)
 const initPageProjet = async function () {
 
   const popupOverlay = document.getElementById('popup-overlay');
 
-  document.getElementById('popup-close').addEventListener('click', () => {
+  document.getElementById('popup-box').addEventListener('click', () => {
     popupOverlay.classList.add('popup-hidden');
   });
 
@@ -326,5 +366,14 @@ const initPageProjet = async function () {
   addEmptyRow();
 
   replaceBox(getBoxByPosition(1, 1), createButtonBox("box11", 1, 1));
+  
 
 };
+
+const summary = document.querySelector(".summary");
+const arrow = document.querySelector(".summary-container img");
+
+arrow.addEventListener("click", () => {
+  summary.classList.toggle("is-open");
+  console.log("good")
+});

@@ -181,6 +181,58 @@ body{
     font-size: calc(15vh * 3 / 4);
 }
 
+:root {
+  /* Couleurs principales */
+  --color-primary: #2a7fff;
+  --color-secondary: #ff6b6b;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-100: #f5f5f5;
+  --color-gray-300: #dcdcdc;
+  --color-gray-500: #888888;
+
+  --color-background: #ffffff;
+  --color-text: #222222;
+  --color-border: #e5e5e5;
+}
+
+
+.c-header {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.button-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.o-grid--center {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.c-tags-list-container {
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.c-tags-list-container > * + * {
+  border-left: 1px solid var(--color-gray-100);
+  padding-left: 16px;
+}
+
+
+
+
+
 /* Fill the whole viewport when its aspect ratio is between 9/16 and 3/4 */
 @media screen and (max-aspect-ratio: 3/4) {
     #container{
@@ -196,6 +248,7 @@ body{
 
 /* The content is displayed at 9/16 If the aspect ratio is higher that 9/16  */ 
 @media screen and (max-aspect-ratio: 9/16) {
+    
     #container{
         margin-left: 0; /* reset left margin */
         width: 100vw;   /* content is full width */

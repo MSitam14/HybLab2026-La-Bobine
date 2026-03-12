@@ -322,6 +322,8 @@ function replaceBox(oldBox, newBox) {
   oldBox.parentElement.replaceChild(newBox, oldBox);
 }
 
+
+
 // async init function (because of the awaits on fetches)
 const initPageProjet = async function () {
 

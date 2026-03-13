@@ -231,6 +231,12 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         const popupText = document.getElementById('popup-text');
         const popupBox = document.getElementById('popup-box');
 
+        // Remove any existing copy button
+        const existingCopy = document.getElementById("copy-button");
+        if (existingCopy) {
+          existingCopy.remove();
+        }
+
         switch (box.color) {
           case 1:
             popupBox.className = "jud";

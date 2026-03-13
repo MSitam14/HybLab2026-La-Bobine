@@ -90,9 +90,12 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
       // Remove all rows
       box.querySelectorAll('.row').forEach(row => row.remove());
 
+
         // Change box background color
         const textDisplay = document.createElement('p');
         textDisplay.id = "base";
+        let qheader = document.querySelector('.main-question');
+        console.log(qheader);
         switch (parseInt(value)) {
           case 1:
             box.color = 1;
@@ -103,6 +106,14 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
             if (Actions.length > count_actions) {
               textDisplay.textContent = Actions[count_actions].Base;
+              
+              //Possibility to copy the text of the action
+              let copyb = document.createElement("button");
+              copyb.textContent = "Copier le texte de l'action";
+              copyb.addEventListener('click', () => {
+                navigator.clipboard.writeText(Actions[box.nAction].Texteplus);
+              });
+              textDisplay.appendChild(copyb);
               box.nAction = count_actions;
               count_actions++;
               box.className += " finished box-action";
@@ -130,6 +141,13 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
             if (Actions.length > count_actions) {
               textDisplay.textContent = Actions[count_actions].Base;
+              //Possibility to copy the text of the action
+              let copyb = document.createElement("button");
+              copyb.textContent = "Copier le texte de l'action";
+              copyb.addEventListener('click', () => {
+                navigator.clipboard.writeText(Actions[box.nAction].Texteplus);
+              });
+              textDisplay.appendChild(copyb);
               box.nAction = count_actions;
               count_actions++;
               box.className += " finished box-action";
@@ -143,6 +161,8 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
           } else {
 
               textDisplay.textContent = Mediatique[box.ngroup].Base;
+              console.log(Mediatique[box.ngroup].Question);
+              console.log(box.ngroup);
               qheader.textContent = Mediatique[box.ngroup].Question;
             }
 
@@ -156,6 +176,14 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
             if (Actions.length > count_actions) {
               textDisplay.textContent = Actions[count_actions].Base;
+              //Possibility to copy the text of the action
+              let copyb = document.createElement("button");
+              copyb.textContent = "Copier le texte de l'action";
+              copyb.addEventListener('click', () => {
+                navigator.clipboard.writeText(Actions[box.nAction].Texteplus);
+              });
+              textDisplay.appendChild(copyb);
+              
               box.nAction = count_actions;
               count_actions++;
               box.className += " finished box-action";
@@ -182,6 +210,14 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
             if (Actions.length > count_actions) {
               textDisplay.textContent = Actions[count_actions].Base;
+              //Possibility to copy the text of the action
+              let copyb = document.createElement("button");
+              copyb.textContent = "Copier le texte de l'action";
+              copyb.addEventListener('click', () => {
+                navigator.clipboard.writeText(Actions[box.nAction].Texteplus);
+              });
+              textDisplay.appendChild(copyb);
+              
               box.nAction = count_actions;
               count_actions++;
               box.className += " finished box-action";

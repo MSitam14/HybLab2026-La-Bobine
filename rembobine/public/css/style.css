@@ -4,6 +4,8 @@ main{
     -webkit-overflow-scrolling: touch;
 }
 
+
+
 .title-image{
   width: 100%;
   height: auto;
@@ -14,8 +16,36 @@ main{
   font-size: 10px;
 }
 
+
+#main-content{
+    overflow: visible !important;
+}
+
+
+.swiper-wrapper section {
+    overflow-y: auto;
+    overflow-x: hidden; /* Évite les bugs de largeur */
+    position: relative; /* Donne un point de référence */
+    height: 100%; /* Important pour Swiper */
+}
+
+.main-question{
+  text-align: center;
+  background: rgb(224, 151, 224);
+  font-size: 30px;
+  position: sticky;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  top:0px;
+  z-index: 999;
+
+}
+
 /* ---------- Popup overlay ---------- */
 #popup-overlay {
+  
+  --animate-duration: 0.2s;
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.55);
@@ -23,7 +53,7 @@ main{
   align-items: center;
   justify-content: center;
   z-index: 100;
-  font-size: 3vw;
+  font-size: 16px;
 }
 
 #popup-overlay.popup-hidden {
@@ -32,18 +62,26 @@ main{
 
 #popup-text {
   font-size: 1.2em;
-  font-weight: bold;
+  /* color | offset-x | offset-y | blur-radius */
+  font-weight: 100;
 }
 
-#popup-close {
-  align-self: center;
-  padding: 0.4em 1.2em;
-  border: none;
-  border-radius: 0.3em;
-  background-color: #ff2ba3;
-  color: #fff;
-  cursor: pointer;
-  font-size: 0.9em;
+#popup-box {
+  
+  --animate-duration: 0.2s;
+  background-image: url("../img/triangle-.svg");
+  background-size: cover;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 70px, 70px;
+
+  padding: 1.5em 2em;
+  max-width: 80%;
+  text-align: left;
+  box-shadow: 0 0.2em 1em rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 /* ---------- End of Popup overlay ---------- */
 
@@ -68,12 +106,14 @@ main{
   --color-light-pink: #F2D1E9;
   --color-blue: #1F71DA;
   --color-light-blue: #62A6EF;
+  --color-lighter-blue: #97c7fd;
   --color-yellow: #FADD3D;
-  --color-light-yello:#F7F6C6;
+  --color-light-yellow:#F7F6C6;
   --color-red: #F14E20;
   --color-black: #000c2d;
   --color-light-gray: #f5f5f5;
   --color-gray: #687385;
+  --color-gray-variant: #dbdddc;
 
   --color-background: #ffffff;
   --color-text: #222222;
@@ -91,12 +131,12 @@ body {
 }
 
 .wrapper{
-    padding-left :5%;
-    padding-right :5%;
+    padding-left :7%;
+    padding-right :7%;
 }
 
 article p {
-  text-align: justify;
+  text-align: left;
 }
 
 #announcement-bar-root {
@@ -300,6 +340,8 @@ border:none;
 
 @media (max-width:768px){
 
+/* ================== PARAMETRES DE LA GRILLE ================== */
+
 .c-nav-wrap{
 position:absolute;
 top:60px;
@@ -314,7 +356,7 @@ padding:20px;
     height: auto;
 }
 
-.box {
+.box , .boxCitation {
   height: 100px;
   width: 100px;
 }
@@ -328,13 +370,14 @@ button{
 
 #map {
   display: flex;
-  flex-direction: row; /* layout children in a row */
-  width: 100%;        /* take full viewport width */
-  margin: 0;           /* remove any default margin */
-  padding: 0;          /* remove any default padding */
-  box-sizing: border-box; /* include padding/border in size */
+  flex-direction: row;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* =========== SOMMAIRE ==================*/
 
 .summary-container {
   background-color: #8772FA;
@@ -372,6 +415,7 @@ button{
   box-sizing: border-box;
   opacity: 0;
   transition: opacity 0.3s ease;
+  
 }
 
 .summary h4 {
@@ -474,7 +518,7 @@ button{
 #map > * {
   flex: 1;
 }
-#map .box {
+#map .box, #map .boxCitation {
 
   --animate-duration: 0.1s;
 
@@ -485,17 +529,16 @@ button{
 }
 
 #map .text-box {
-  justify-content: center;
-  align-items: center;
   display: flex;
 
-  background-image:
-  url("../img/triangle+.svg"); /*triangle +*/
+  align-items: flex-start;
+
+  background-image: url("../img/triangle+.svg"); /*triangle +*/
   
   background-size: cover;
   background-position: bottom left;
   background-repeat: no-repeat;
-  background-size: 40% 40%;
+  background-size: 30% 30%;
 }
 
 #map .text-box p{
@@ -528,36 +571,119 @@ button{
   opacity: 0.7;
 }
 
-#popup-box {
-  background: #fff;
-  padding: 1.5em 2em;
-  max-width: 80%;
-  text-align: left;
-  box-shadow: 0 0.2em 1em rgba(0,0,0,0.4);
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
+/* ================== COULEUR DES CASES ================== */
 
-
+/* JUDICIAIRE (VERT) */
 .jud{
   background-color : var(--color-green);
 }
 
+.jud #popup-text, .jud.text-box {
+  text-shadow: var(--color-light-green) 1.5px 1.5px 0px;
+}
+
+#map .text-box.finished.jud{
+  background-image: url("../img/triangle_green.svg");
+}
+
+#map .boxCitation.jud{
+  background-image: url("../img/guillemet_green.svg"); /*triangle +*/
+}
+
+/* INSTITUTIONNEL (BLEU) */
 .inst{
   background-color : var(--color-light-blue);
 }
 
+.inst #popup-text, .inst.text-box {
+  text-shadow: var(--color-lighter-blue) 1.5px 1.5px 0px;
+}
+
+#map .text-box.finished.inst{
+  background-image: url("../img/triangle_blue.svg");
+}
+
+#map .boxCitation.inst{
+  background-image: url("../img/guillemet_blue.svg");
+}
+
+/* PUBLIC (ROSE) */
 .pub{
   background-color : var(--color-pink);
 }
 
+.pub #popup-text, .pub.text-box {
+  text-shadow: var(--color-light-pink) 1.5px 1.5px 0px;
+}
+
+#map .text-box.finished.pub{
+  background-image: url("../img/triangle_pink.svg");
+}
+
+#map .boxCitation.pub{
+  background-image: url("../img/guillemet_pink.svg");
+}
+
+/* MEDIATIQUE (JAUNE) */
 .med{
   background-color : var(--color-yellow);
 }
 
+.med #popup-text, .text-box.med{
+  text-shadow: var(--color-light-yellow) 1.5px 1.5px 0px;
+}
+
+#map .text-box.finished.med{
+  background-image: url("../img/triangle_yellow.svg");
+}
+
+#map .boxCitation.med{
+  background-image: url("../img/guillemet_yellow.svg");
+}
+
+/* ================== FOOTER ===================== */
 .footer {
-    margin-top: 50px;
+    margin-top: 50px;    
     height: 50px;
 }
 
+/* ================== COULEUR DES CASES TERMINEES ================== */
+
+.finished
+{
+  background-color : var(--color-gray-variant);
+}
+
+.text-box.finished{
+  text-shadow: var(--color-light-gray) 1.5px 1.5px 0px;
+}
+
+/* ================== COULEUR DES CASES CITATIONS ================== */
+.boxCitation{
+  background-color: var(--color-transparent);
+  
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  
+  background-size: cover;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 30% 30%;
+}
+
+/* ================== COULEUR DES CASES ACTIONS ================== */
+
+.box-action{
+
+}
+
+.action{
+
+}
+
+/* ========= BOUTON POUR REVENIR EN HAUT ============*/
+
+#top{
+
+}

@@ -262,22 +262,27 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         boxNum = Math.floor(Math.random() * boxsFreeList.length);
         theChoosenBox = boxsFreeList[boxNum];
       }
-      let newbox = createButtonBox(`box${theChoosenBox.row}${theChoosenBox.column}`, theChoosenBox.row, theChoosenBox.column)
+
+      if (count_institutionnel <= Institutionnel.length || count_judiciaire <= Judiciaire.length || count_mediatique <= Mediatique.length || count_public <= Public.length) {
+        let newbox = createButtonBox(`box${theChoosenBox.row}${theChoosenBox.column}`, theChoosenBox.row, theChoosenBox.column)
 
 
-      if (box.column > theChoosenBox.column) newbox.className += " animate__animated animate__fadeInRight"
-      if (box.column < theChoosenBox.column) newbox.className += " animate__animated animate__fadeInLeft"
-      if (box.row > theChoosenBox.row) newbox.className += " animate__animated animate__fadeInUp"
-      if (box.row < theChoosenBox.row) newbox.className += " animate__animated animate__fadeInDown"
+        if (box.column > theChoosenBox.column) newbox.className += " animate__animated animate__fadeInRight"
+        if (box.column < theChoosenBox.column) newbox.className += " animate__animated animate__fadeInLeft"
+        if (box.row > theChoosenBox.row) newbox.className += " animate__animated animate__fadeInUp"
+        if (box.row < theChoosenBox.row) newbox.className += " animate__animated animate__fadeInDown"
 
-      replaceBox(theChoosenBox, newbox)
-      newbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        replaceBox(theChoosenBox, newbox)
+        newbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
 
-      box.className = box.className.replace(" animate__animated animate__fadeInRight", ""); // Remove action class if it exists
-      box.className = box.className.replace(" animate__animated animate__fadeInLeft", ""); // Remove action class if it exists
-      box.className = box.className.replace(" animate__animated animate__fadeInUp", ""); // Remove action class if it exists
-      box.className = box.className.replace(" animate__animated animate__fadeInDown", ""); // Remove action class if it exists
+        box.className = box.className.replace(" animate__animated animate__fadeInRight", ""); // Remove action class if it exists
+        box.className = box.className.replace(" animate__animated animate__fadeInLeft", ""); // Remove action class if it exists
+        box.className = box.className.replace(" animate__animated animate__fadeInUp", ""); // Remove action class if it exists
+        box.className = box.className.replace(" animate__animated animate__fadeInDown", ""); // Remove action class if it exists
+      }
+
+
 
 
       box.className += " text-box";

@@ -111,7 +111,7 @@ main{
   --color-black: #000c2d;
   --color-light-gray: #f5f5f5;
   --color-gray: #687385;
-  --color-gray-variant: #b7bec8;
+  --color-gray-variant: #dbdddc;
 
   --color-background: #ffffff;
   --color-text: #222222;
@@ -134,7 +134,7 @@ body {
 }
 
 article p {
-  text-align: justify;
+  text-align: left;
 }
 
 #announcement-bar-root {
@@ -338,6 +338,8 @@ border:none;
 
 @media (max-width:768px){
 
+/* ================== PARAMETRES DE LA GRILLE ================== */
+
 .c-nav-wrap{
 position:absolute;
 top:60px;
@@ -366,13 +368,14 @@ button{
 
 #map {
   display: flex;
-  flex-direction: row; /* layout children in a row */
-  width: 100%;        /* take full viewport width */
-  margin: 0;           /* remove any default margin */
-  padding: 0;          /* remove any default padding */
-  box-sizing: border-box; /* include padding/border in size */
+  flex-direction: row;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* =========== SOMMAIRE ==================*/
 
 .summary-container {
   background-color: #8772FA;
@@ -484,8 +487,9 @@ button{
   opacity: 0.7;
 }
 
+/* ================== COULEUR DES CASES ================== */
 
-
+/* JUDICIAIRE (VERT) */
 .jud{
   background-color : var(--color-green);
 }
@@ -498,6 +502,11 @@ button{
   background-image: url("../img/triangle_green.svg");
 }
 
+#map .boxCitation.jud{
+  background-image: url("../img/guillemet_green.svg"); /*triangle +*/
+}
+
+/* INSTITUTIONNEL (BLEU) */
 .inst{
   background-color : var(--color-light-blue);
 }
@@ -510,6 +519,11 @@ button{
   background-image: url("../img/triangle_blue.svg");
 }
 
+#map .boxCitation.inst{
+  background-image: url("../img/guillemet_blue.svg");
+}
+
+/* PUBLIC (ROSE) */
 .pub{
   background-color : var(--color-pink);
 }
@@ -522,6 +536,11 @@ button{
   background-image: url("../img/triangle_pink.svg");
 }
 
+#map .boxCitation.pub{
+  background-image: url("../img/guillemet_pink.svg");
+}
+
+/* MEDIATIQUE (JAUNE) */
 .med{
   background-color : var(--color-yellow);
 }
@@ -534,11 +553,17 @@ button{
   background-image: url("../img/triangle_yellow.svg");
 }
 
+#map .boxCitation.med{
+  background-image: url("../img/guillemet_yellow.svg");
+}
+
+/* ================== FOOTER ===================== */
 .footer {
     margin-top: 50px;    
     height: 50px;
 }
 
+/* ================== COULEUR DES CASES TERMINEES ================== */
 
 .finished
 {
@@ -547,4 +572,23 @@ button{
 
 .text-box.finished{
   text-shadow: var(--color-light-gray) 0.5px 0.5px 0px;
+}
+
+/* ================== COULEUR DES CASES CITATIONS ================== */
+.boxCitation{
+  background-color: var(--color-transparent);
+  
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  
+  background-size: cover;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 30% 30%;
+}
+
+/* ================== COULEUR DES CASES ACTIONS ================== */
+.box-action{
+
 }

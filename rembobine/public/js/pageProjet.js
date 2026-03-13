@@ -475,8 +475,15 @@ const initPageProjet = async function () {
 };
 
 const summary = document.querySelector(".summary");
-const arrow = document.querySelector(".summary-container img");
+const arrow = document.querySelector(".summary-container");
 
 arrow.addEventListener("click", () => {
   summary.classList.toggle("is-open");
+});
+
+const impact_explanation = document.querySelector(".impact-explanation");
+const impact_arrow = document.querySelector(".impact-unfolding");
+
+impact_arrow.addEventListener("click", () => {
+  impact_explanation.classList.toggle("is-open");
 });

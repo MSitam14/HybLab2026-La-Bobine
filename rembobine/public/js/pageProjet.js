@@ -12,6 +12,7 @@ let count_mediatique = 0;
 let count_judiciaire = 0;
 let count_public = 0;
 let count_actions = 0;
+let response = null;
 
 let columnForCitation = 1;
 
@@ -90,11 +91,10 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
       box.querySelectorAll('.row').forEach(row => row.remove());
 
 
-        // Change box background color
+        // Change question box text and color according to the clicked button
         const textDisplay = document.createElement('p');
         textDisplay.id = "base";
         let qheader = document.querySelector('.main-question');
-        console.log(qheader);
         switch (parseInt(value)) {
           case 1:
             box.color = 1;
@@ -121,7 +121,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
             } else{
 
               textDisplay.textContent = Judiciaire[box.ngroup].Base;
-              qheader.textContent = Judiciaire[box.ngroup].Question;
+              qheader.textContent = getquestionHeader();
             }
             
             break;
@@ -399,6 +399,25 @@ function addEmptyRow(aRow = 1) {
   mapCol1.appendChild(box1);
   mapCol2.appendChild(box2);
 }
+
+
+function getquestionHeader() {
+  let qheader = document.querySelector('.main-question');
+  if (qheader) {
+    return qheader.textContent;
+  }
+  let compteur = 0;
+  while (qheader.textContent == null && compteur < QHeader.length) {
+    if(Statut[QHeader[compteur].Reponse] === false){
+      qheader.textContent = QHeader[compteur].Question;
+      return qheader.textContent;
+    }
+    compteur++;
+  }
+  qheader.textContent = "Explorez librement !";
+  
+}
+
 
 function addCitation(box, impactId) {
   switch (impactId) {

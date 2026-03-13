@@ -62,20 +62,17 @@
   ],
   "QHeader":[
     {
-      "Question": "Pas d'idée",
-      "Reponse": 1
+      "Question": "Quel secteur a pu être impacté bien qu'aucune loi n'ait pu être modifiée ?",
+      "Reponse": 2,
+      "Right": "Exactement, le secteur médiatique a pu l'être.",
+      "Wrong": "Malheureusement, c'est peu le cas pour ce domaine."
+      
     },
     {
-      "Question": "La guerre c'est bien ou pas ?",
-      "Reponse": 2
-    },
-    {
-      "Question": "Aujourd'hui dans guerre news, la guerre",
-      "Reponse": 3
-    },
-    {
-      "Question": "Ils sont sympas les Russes ?",
-      "Reponse": 4
+      "Question": "Sur quel secteur l'enquête a-t-elle pu avoir un impact direct sur une ou des “Maisons russes” ?",
+      "Reponse": 4,
+      "Right": "C'est bien ce secteur !",
+      "Wrong": "Cela aurait pu, mais c'est au niveau institutionnel"
     }
   ],
   "Actions": [

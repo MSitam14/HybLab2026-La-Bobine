@@ -534,7 +534,8 @@ button {
 
 #map .boxCitation.jud {
   background-image: url("../img/guillemet_green.svg");
-  /*triangle +*/
+  box-sizing: border-box;
+  border: solid 2px var(--color-purple);
 }
 
 /* INSTITUTIONNEL (BLEU) */
@@ -553,6 +554,8 @@ button {
 
 #map .boxCitation.inst {
   background-image: url("../img/guillemet_blue.svg");
+  box-sizing: border-box;
+  border: solid 2px var(--color-purple);
 }
 
 /* PUBLIC (ROSE) */
@@ -571,6 +574,8 @@ button {
 
 #map .boxCitation.pub {
   background-image: url("../img/guillemet_pink.svg");
+  box-sizing: border-box;
+  border: solid 2px var(--color-purple);
 }
 
 /* MEDIATIQUE (JAUNE) */
@@ -589,6 +594,8 @@ button {
 
 #map .boxCitation.med {
   background-image: url("../img/guillemet_yellow.svg");
+  box-sizing: border-box;
+  border: solid 2px var(--color-purple);
 }
 
 /* ================== FOOTER ===================== */

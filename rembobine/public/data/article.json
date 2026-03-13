@@ -77,5 +77,16 @@
       "Question": "Ils sont sympas les Russes ?",
       "Reponse": 4
     }
+  ],
+  "Actions": [
+    {
+      "Base": "Vous pouvez faire une action ! C'est la premiere",
+      "Texteplus": "Wow qu'elle belle premiere action !"
+    },
+    {
+      "Base": "Vous pouvez faire une action !, c'est la seconde",
+      "Texteplus": "Wow qu'elle belle derniere action !"
+    }
+    
   ]
 }

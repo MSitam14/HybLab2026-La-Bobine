@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Calque_1"
+   data-name="Calque 1"
+   viewBox="0 0 338.47 338.47"
+   version="1.1"
+   sodipodi:docname="guillemet _pink.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.57390611"
+     inkscape:cx="459.13433"
+     inkscape:cy="271.82147"
+     inkscape:window-width="1680"
+     inkscape:window-height="1020"
+     inkscape:window-x="32"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Calque_1" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path
+     class="cls-1"
+     d="M87.7,169.12c0-30.48,24.71-55.18,55.19-55.18,1.22,0,2.42.1,3.62.18v-38.03c-2.69-.24-5.4-.38-8.14-.38-51.59,0-93.41,41.82-93.41,93.41v93.64h102v-93.64h-59.26Z"
+     id="path1"
+     style="fill:#f7a6de;fill-opacity:1" />
+  <path
+     class="cls-1"
+     d="M234.26,169.12c0-30.48,24.71-55.18,55.19-55.18,1.22,0,2.42.1,3.62.18v-38.03c-2.69-.24-5.4-.38-8.14-.38-51.59,0-93.41,41.82-93.41,93.41v93.64h102v-93.64h-59.26Z"
+     id="path2"
+     style="fill:#f7a6de;fill-opacity:1" />
+</svg>

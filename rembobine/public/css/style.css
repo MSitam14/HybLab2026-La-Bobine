@@ -37,6 +37,7 @@ main{
 .main-question {
   text-align: center;
   font-size: 30px;
+  pointer-events: none;
   font-weight: bold;
   position: sticky;
   top: 0px;

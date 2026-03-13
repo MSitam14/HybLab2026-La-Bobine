@@ -59,5 +59,16 @@
       "Texteplus": "Sur le continent africain, l'enquête n'a, par contre, pas suscité tant de réactions. « Je pense que ça ne dérange pas tant que ça l'opinion publique que les Russes fassent de la diplomatie culturelle parce qu’ils y sont ouvertement réceptifs, explique Driss Rejichi. Il y a une haine montante de l'Occident et de l'Europe. Il y a également des valeurs traditionnelles familiales, avec tout un socle sexiste et homophobe, qui est réactivé auprès de la jeunesse africaine, et en Russie aussi », déplore-t-il.",
       "Citation": "Je pense que ça ne dérange pas tant que ça l'opinion publique que les Russes fassent de la diplomatie culturelle [...] Il y a une haine montante de l'Occident et de l'Europe..."
     }
+  ],
+  "Actions": [
+    {
+      "Base": "Vous pouvez faire une action ! C'est la premiere",
+      "Texteplus": "Wow qu'elle belle premiere action !"
+    },
+    {
+      "Base": "Vous pouvez faire une action !, c'est la seconde",
+      "Texteplus": "Wow qu'elle belle derniere action !"
+    }
+    
   ]
 }
